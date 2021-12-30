@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   const Zillow = sequelize.define(
-    "zillow",
+    'zillow',
     {
       home_type: {
         type: Sequelize.STRING,

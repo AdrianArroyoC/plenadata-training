@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
+    "luxon": "^2.2.0",
     "mysql2": "^2.3.3",
     "puppeteer": "^13.0.1",
     "puppeteer-extra": "^3.2.3",

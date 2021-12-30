@@ -1,24 +1,24 @@
-const config = require("../config");
+const config = require('../config');
 
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
+  config.db.database,
+  config.db.username,
+  config.db.password,
   {
-    host: config.host,
-    dialect: config.dialect,
-    port: config.port,
+    host: config.db.host,
+    dialect: config.db.dialect,
+    port: config.db.port,
     define: {
-      charset: "utf8",
-      collate: "utf8_general_ci",
+      charset: 'utf8',
+      collate: 'utf8_general_ci',
     },
     pool: {
-      max: config.pool.max,
-      min: config.pool.min,
-      acquire: config.pool.acquire,
-      idle: config.pool.idle,
+      max: config.db.pool.max,
+      min: config.db.pool.min,
+      acquire: config.db.pool.acquire,
+      idle: config.db.pool.idle,
     },
   }
 );
@@ -26,7 +26,8 @@ const sequelize = new Sequelize(
 const db = {
   Sequelize,
   sequelize,
-  zillow: require("./zillow.model")(sequelize, Sequelize),
+  zillow: require('./zillow.model')(sequelize, Sequelize),
+  slack: require('./slack.model')(sequelize, Sequelize),
 };
 
 module.exports = db;
