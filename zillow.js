@@ -114,9 +114,9 @@ async function getData(page) {
     const bedBathItems = document.querySelectorAll(
       'span[data-testid="bed-bath-item"] strong'
     ); // strong
-    const beds = bedBathItems[0].textContent || '';
-    const baths = bedBathItems[1].textContent || '';
-    const sqft = bedBathItems[2].textContent || '';
+    const beds = bedBathItems[0] ? bedBathItems[0].textContent : '';
+    const baths = bedBathItems[1] ? bedBathItems[1].textContent : '';
+    const sqft = bedBathItems[2] ? bedBathItems[2].textContent : '';
     const addressElement = document.querySelector(
       'span[data-testid="address"]'
     );

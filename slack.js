@@ -16,7 +16,7 @@ async function slack(page) {
   const signIn = await page.waitForSelector(signInSelector);
   await signIn.click();
 
-  // Type the email and password
+  // Type the email
   const emailSelector = 'input[data-qa="email_field"]';
   const email = await page.waitForSelector(emailSelector);
   await email.type(config.slack.email);
@@ -70,7 +70,7 @@ async function slack(page) {
     'div[data-qa="slack_kit_list"] div[data-qa="virtual-list-item"] .p-channel_sidebar__channel span[data-qa="channel_sidebar_name_help-training"]';
   const channel = await page.waitForSelector(channelSelector);
   await channel.click();
-  await delay(2000);
+  await delay(2000); // Review this
 
   const messagePanleSelector = 'div[data-qa="message_pane"]';
   await page.waitForSelector(messagePanleSelector);
@@ -138,7 +138,7 @@ async function slack(page) {
       return {
         user,
         ts: tsFixed,
-        text: text === ' ' ? '' : text,
+        text: text === ' ' ? '' : text.trimStart(),
         replies,
       };
     });
@@ -161,6 +161,10 @@ async function slack(page) {
       await Slack.create(message);
     }
   }
+
+  // null //null null
+  // Dave fecha texto
+  // Dave fecha texto
 }
 
 module.exports = slack;

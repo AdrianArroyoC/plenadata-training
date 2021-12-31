@@ -1,11 +1,13 @@
 {
-  "name": "puppeteer-training",
+  "name": "plenadata-training",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "zillow": "node index.js headless zillow",
+    "slack": "node index.js headless slack",
+    "test": "nodemon index.js headless test"
   },
   "keywords": [],
   "author": "adrianarroyoc <adrianarroyoceja@gmail.com>",
@@ -20,5 +22,7 @@
     "puppeteer-extra-plugin-stealth": "^2.9.0",
     "sequelize": "^6.12.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
