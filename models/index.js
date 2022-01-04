@@ -23,11 +23,21 @@ const sequelize = new Sequelize(
   }
 );
 
+const Invoice = require('./invoice.model')(sequelize, Sequelize);
+const InvoiceLineItem = require('./invoiceLineItem.model')(
+  sequelize,
+  Sequelize
+);
+Invoice.hasMany(InvoiceLineItem);
+InvoiceLineItem.belongsTo(Invoice);
+
 const db = {
   Sequelize,
   sequelize,
   zillow: require('./zillow.model')(sequelize, Sequelize),
   slack: require('./slack.model')(sequelize, Sequelize),
+  invoice: Invoice,
+  invoiceLineItem: InvoiceLineItem,
 };
 
 module.exports = db;

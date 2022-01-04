@@ -1,6 +1,7 @@
 const zillow = require('./zillow');
 const slack = require('./slack');
 const test = require('./test');
+const parsing = require('./parsing');
 
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
@@ -10,17 +11,17 @@ puppeteer.use(AdblockerPlugin());
 
 const db = require('./models');
 
-// db.sequelize.sync();
-db.sequelize
-  .sync({force: true})
-  .then(() => {
-    console.log('Drop and re-sync db.');
-  })
-  .catch(error => {
-    console.error('Drop and re-sync db error: ', error.message);
-  });
-
 async function init() {
+  await db.sequelize.sync();
+  // await db.sequelize
+  //   .sync({force: true})
+  //   .then(() => {
+  //     console.log('Drop and re-sync db.');
+  //   })
+  //   .catch(error => {
+  //     console.error('Drop and re-sync db error: ', error.message);
+  //   });
+
   if (process.argv[2] === 'headless') {
     const browser = await puppeteer.launch({
       args: [`--window-size=1920,1080`],
@@ -46,6 +47,10 @@ async function init() {
     } finally {
       await browser.close();
     }
+  }
+
+  if (process.argv[2] === 'parsing') {
+    await parsing();
   }
 }
 
