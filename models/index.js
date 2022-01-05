@@ -38,6 +38,7 @@ const db = {
   slack: require('./slack.model')(sequelize, Sequelize),
   invoice: Invoice,
   invoiceLineItem: InvoiceLineItem,
+  check: require('./checks.model')(sequelize, Sequelize),
 };
 
 module.exports = db;

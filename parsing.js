@@ -13,13 +13,11 @@ async function parsing() {
     console.error(errData.parserError)
   );
 
-  const path = `./pdfs/${process.argv[3]}/${
-    process.argv[4] ? process.argv[4] + '/' : ''
-  }`;
+  const path = `./pdfs/invoices/${process.argv[3]}/`;
   const files = fs.readdirSync(path);
   let filePath = `${path}${
-    process.argv[5]
-      ? process.argv[5]
+    process.argv[4]
+      ? process.argv[4]
       : files[Math.floor(Math.random() * files.length)]
   }`;
 
@@ -35,13 +33,15 @@ async function parsing() {
         .replace(/%23/g, '#')
     );
 
-    if (process.argv[4] === 'dhl') {
+    // console.log(pdfDataParsed);
+
+    if (process.argv[3] === 'dhl') {
       invoice = dhl(pdfDataParsed);
     }
-    if (process.argv[4] === 'flos') {
+    if (process.argv[3] === 'flos') {
       invoice = flos(pdfDataParsed);
     }
-    if (process.argv[4] === 'pablo') {
+    if (process.argv[3] === 'pablo') {
       invoice = pablo(pdfDataParsed);
     }
     console.log(invoice);

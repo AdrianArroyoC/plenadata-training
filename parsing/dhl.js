@@ -1,6 +1,5 @@
 function dhl(pdfData) {
   const chargeTypes = ['Duties, Taxes and Regulatory Charges', 'DHL Charges'];
-  console.log(pdfData);
 
   const companyName = pdfData[1];
   let invoiceNumber = 0;
@@ -9,12 +8,10 @@ function dhl(pdfData) {
   const address = pdfData.slice(2, 5).join(' ');
   const invoiceLineItems = [];
   for (let i = 0; i < pdfData.length; i++) {
-    // Invoice number
     if (pdfData[i] === 'Invoice Number:') {
       invoiceNumber = parseInt(pdfData[i + 1]);
     }
     // PO #
-    // Date
     if (pdfData[i] === 'Invoice Date:') {
       date = pdfData[i + 1];
     }
@@ -40,6 +37,7 @@ function dhl(pdfData) {
       i = pdfData.length;
     }
   }
+
   return {
     type: 'dhl',
     company_name: companyName,

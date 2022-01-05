@@ -7,10 +7,10 @@
     "start": "node index.js",
     "zillow": "node index.js headless zillow",
     "slack": "node index.js headless slack",
-    "parsing-dhl": "node index.js parsing invoices dhl",
-    "parsing-flos": "node index.js parsing invoices flos",
-    "parsing-pablo": "node index.js parsing invoices pablo",
-    "test": "nodemon index.js headless test"
+    "parsing-dhl": "node index.js parsing dhl",
+    "parsing-flos": "node index.js parsing flos",
+    "parsing-pablo": "node index.js parsing pablo",
+    "document-ai": "node index.js document-ai"
   },
   "keywords": [],
   "author": "adrianarroyoc <adrianarroyoceja@gmail.com>",
@@ -26,7 +26,5 @@
     "puppeteer-extra-plugin-stealth": "^2.9.0",
     "sequelize": "^6.12.4"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+  "devDependencies": {}
 }

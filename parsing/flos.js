@@ -1,5 +1,4 @@
 function flos(pdfData) {
-  // console.log(pdfData);
 
   let companyName = '';
   let invoiceNumber = 0;

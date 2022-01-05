@@ -1,6 +1,4 @@
 function pablo(pdfData) {
-  console.log(pdfData);
-
   let companyName = '';
   let invoiceNumber = 0;
   let processOrderNumber = 0;
