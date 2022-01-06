@@ -10,7 +10,8 @@
     "parsing-dhl": "node index.js parsing dhl",
     "parsing-flos": "node index.js parsing flos",
     "parsing-pablo": "node index.js parsing pablo",
-    "document-ai": "node index.js document-ai"
+    "document-ai": "node index.js document-ai",
+    "volaris": "node volaris.js"
   },
   "keywords": [],
   "author": "adrianarroyoc <adrianarroyoceja@gmail.com>",

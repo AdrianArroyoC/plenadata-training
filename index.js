@@ -61,6 +61,10 @@ async function init() {
   if (process.argv[2] === 'document-ai') {
     await documentAi();
   }
+
+  if (process.argv[2] === 'volaris') {
+    await volaris();
+  }
 }
 
 init();
